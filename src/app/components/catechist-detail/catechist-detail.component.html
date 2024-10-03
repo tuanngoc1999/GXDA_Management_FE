@@ -1,0 +1,66 @@
+<h1 mat-dialog-title>Chi tiết GLV</h1>
+<div mat-dialog-content class="catechist-detail-form">
+    <form [formGroup]="catechistForm">
+        <mat-form-field appearance="outline">
+          <mat-label>Tên Thánh</mat-label>
+          <input matInput formControlName="holyName">
+        </mat-form-field>
+      
+        <mat-form-field appearance="outline">
+          <mat-label>Họ</mat-label>
+          <input matInput formControlName="firstName">
+        </mat-form-field>
+      
+        <mat-form-field appearance="outline">
+          <mat-label>Tên</mat-label>
+          <input matInput formControlName="lastName">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Ngày sinh</mat-label>
+          <input matInput [matDatepicker]="birthDatePicker" formControlName="birthDate">
+          <mat-datepicker-toggle matIconSuffix [for]="birthDatePicker"></mat-datepicker-toggle>
+          <mat-datepicker #birthDatePicker></mat-datepicker>
+        </mat-form-field>
+      
+        <mat-form-field appearance="outline">
+          <mat-label>Địa chỉ</mat-label>
+          <input matInput formControlName="address">
+        </mat-form-field>
+      
+        <mat-form-field appearance="outline">
+          <mat-label>Liên lạc</mat-label>
+          <input matInput formControlName="contact">
+        </mat-form-field>
+      
+        <mat-form-field appearance="outline">
+          <mat-label>Trình độ</mat-label>
+          <input matInput formControlName="level">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Tài khoản</mat-label>
+            <input matInput formControlName="userName" [readonly]="!isNewCatechist">
+            <mat-error *ngIf="catechistForm.get('userName')?.hasError('alreadyExists')">
+              Tên tài khoản đã được sử dụng!
+            </mat-error>
+        </mat-form-field>  
+
+        <mat-form-field *ngIf="isNewCatechist" appearance="outline">
+            <mat-label>Mật khẩu</mat-label>
+            <input matInput formControlName="password">
+        </mat-form-field>  
+
+        <mat-form-field class="input-full-width" appearance="outline">
+          <mat-label>Quyền</mat-label>
+          <input matInput formControlName="profiles" readonly>
+          <button mat-button matSuffix class="catechist-select-button" (click)="onSelectProfile()" aria-label="search">Chọn</button>
+      </mat-form-field>
+      </form>
+      
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="close()">Hủy</button>
+  <button mat-button *ngIf="!isNewCatechist" (click)="deleteCatechist(catechistForm.value.id)">Xoá</button>
+  <button mat-button (click)="save(catechistForm)">Lưu</button>
+</div>

@@ -1,0 +1,53 @@
+/* styles.css hoặc file CSS tương ứng */
+
+.student-form {
+    max-width: 800px; /* Đặt chiều rộng tối đa để form không quá rộng */
+    margin: 20px auto; /* Căn giữa form và thêm khoảng cách từ trên và dưới */
+    padding: 20px; /* Thêm padding để khoảng cách giữa form và biên ngoài */
+    border-radius: 8px; /* Bo góc form */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Thêm bóng đổ nhẹ để nổi bật hơn */
+    background-color: #fff; /* Nền trắng để nổi bật hơn */
+  }
+  
+  mat-form-field {
+    width: 100%; /* Đảm bảo các trường input chiếm toàn bộ chiều rộng của form */
+    margin-bottom: 16px; /* Thêm khoảng cách giữa các trường */
+  }
+  
+  mat-form-field mat-label {
+    /* font-weight: bold; Làm nổi bật nhãn của các trường */
+  }
+  
+  mat-card {
+    padding: 16px; /* Padding để làm cho nội dung không bị dính vào cạnh card */
+  }
+  
+  mat-card-header {
+    background-color: #f5f5f5; /* Nền màu xám nhạt cho tiêu đề card */
+    border-bottom: 1px solid #ddd; /* Đường viền dưới tiêu đề card */
+  }
+  
+  mat-card-title {
+    font-size: 1.25rem; /* Kích thước chữ tiêu đề lớn hơn */
+    font-weight: bold; /* Làm nổi bật tiêu đề card */
+  }
+  
+  mat-grid-list {
+    margin-top: 10px; /* Thêm khoảng cách giữa grid list và các phần khác */
+  }
+  
+  mat-grid-tile {
+    padding: 8px; /* Thêm padding giữa các trường trong grid tile */
+  }
+  
+  mat-button {
+    margin-top: 20px; /* Thêm khoảng cách phía trên nút lưu */
+  }
+  
+  .catechist-detail-form {
+    padding: 16px;
+  }
+  .catechist-select-button {
+    background: none;
+    border: none;
+  }

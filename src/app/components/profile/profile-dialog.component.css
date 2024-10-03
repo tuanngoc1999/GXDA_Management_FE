@@ -1,0 +1,28 @@
+.profile-details {
+    margin: 20px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+  }
+  
+  th {
+    background-color: #f4f4f4;
+  }
+  
+  input[type="checkbox"] {
+    cursor: pointer;
+  }
+
+.content {
+  padding: 15px;
+}
+.profile-title {
+  font-style: italic;
+}

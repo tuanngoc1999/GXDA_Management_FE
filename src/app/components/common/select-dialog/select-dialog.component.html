@@ -1,0 +1,20 @@
+<div style="display:block" class="select-dialog">
+    <h1 mat-dialog-title>{{ title }}</h1>
+    <div mat-dialog-content>
+      <mat-selection-list
+        style="height:350px"
+        [multiple]="true"
+        (selectionChange)="onSelectionChange($event)"
+      >
+        <mat-list-option *ngFor="let item of items" [value]="item.id" [selected]="selectedIds.includes(item.id)">
+          {{ item.name }}
+        </mat-list-option>
+      </mat-selection-list>
+  
+      <mat-dialog-actions align="end">
+        <button mat-button (click)="dialogRef.close()">Thoát</button>
+        <button mat-button (click)="closeDialog()">Lưu</button>
+      </mat-dialog-actions>
+    </div>
+  </div>
+  

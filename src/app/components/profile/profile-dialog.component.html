@@ -1,0 +1,172 @@
+<div mat-dialog-title>
+    <h2>Profile Information</h2>
+  </div>
+  <div mat-dialog-content>
+    <mat-form-field appearance="outline">
+      <mat-label>Tên quyền</mat-label>
+      <input matInput [(ngModel)]="profile.name">
+    </mat-form-field>
+  
+    <table>
+      <thead>
+        <tr>
+          <th>Quyền</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr>
+          <td colspan="2"><strong>Xem thông tin thiếu nhi</strong></td>
+        </tr>
+        <tr>
+          <td class="profile-title">Toàn bộ</td>
+          <td><input type="checkbox" [(ngModel)]="profile.p1"/></td>
+        </tr>        
+        <tr>
+          <td class="profile-title">Theo khối</td>
+          <td><input type="checkbox" [(ngModel)]="profile.p2"/></td>
+        </tr>  
+        <tr>
+          <td class="profile-title">Theo lớp</td>
+          <td><input type="checkbox" [(ngModel)]="profile.p3"/></td>
+        </tr> 
+
+        <tr>
+          <td colspan="2"><strong>Sửa thông tin thiếu nhi</strong></td>
+        </tr>
+        <tr>
+          <td class="profile-title">Toàn bộ</td>
+          <td><input type="checkbox" [(ngModel)]="profile.p4"/></td>
+        </tr>        
+        <tr>
+          <td class="profile-title">Theo khối</td>
+          <td><input type="checkbox" [(ngModel)]="profile.p5"/></td>
+        </tr>  
+        <tr>
+          <td class="profile-title">Theo lớp</td>
+          <td><input type="checkbox" [(ngModel)]="profile.p6"/></td>
+        </tr> 
+
+        <tr>
+          <td colspan="2"><strong>Quản lý thiếu nhi</strong></td>
+        </tr>
+        <tr>
+          <td class="profile-title">Thêm</td>
+          <td><input type="checkbox" [(ngModel)]="profile.p7"/></td>
+        </tr>        
+        <tr>
+          <td class="profile-title">Xoá</td>
+          <td><input type="checkbox" [(ngModel)]="profile.p8"/></td>
+        </tr>  
+        <tr>
+          <td class="profile-title">Xếp lớp</td>
+          <td><input type="checkbox" [(ngModel)]="profile.p9"/></td>
+        </tr> 
+
+        <tr>
+          <td colspan="2"><strong>Quản lý GLV</strong></td>
+        </tr>
+        <tr>
+          <td class="profile-title">Xem</td>
+          <td><input type="checkbox" [(ngModel)]="profile.p10"/></td>
+        </tr>  
+        <tr>
+          <td class="profile-title">Thêm</td>
+          <td><input type="checkbox" [(ngModel)]="profile.p11"/></td>
+        </tr>        
+        <tr>
+          <td class="profile-title">Xoá</td>
+          <td><input type="checkbox" [(ngModel)]="profile.p12"/></td>
+        </tr>  
+        <tr>
+          <td class="profile-title">Sửa</td>
+          <td><input type="checkbox" [(ngModel)]="profile.p13"/></td>
+        </tr> 
+
+        <tr>
+          <td colspan="2"><strong>Xếp lớp cho GLV</strong></td>
+        </tr>
+        <tr>
+          <td class="profile-title">Toàn bộ</td>
+          <td><input type="checkbox" [(ngModel)]="profile.p14"/></td>
+        </tr>        
+        <tr>
+          <td class="profile-title">Theo khối</td>
+          <td><input type="checkbox" [(ngModel)]="profile.p15"/></td>
+        </tr>  
+
+        <tr>
+          <td colspan="2"><strong>Quyền & Phân quyền</strong></td>
+        </tr>
+        <tr>
+          <td class="profile-title">Quản lý quyền</td>
+          <td><input type="checkbox" [(ngModel)]="profile.p16"/></td>
+        </tr>        
+        <tr>
+          <td class="profile-title">Phân quyền</td>
+          <td><input type="checkbox" [(ngModel)]="profile.p17"/></td>
+        </tr>  
+
+        <tr>
+          <td colspan="2"><strong>Quản lý các lớp</strong></td>
+        </tr>
+        <tr>
+          <td class="profile-title">Xem</td>
+          <td><input type="checkbox" [(ngModel)]="profile.p18"/></td>
+        </tr>     
+        <tr>
+          <td class="profile-title">Thêm</td>
+          <td><input type="checkbox" [(ngModel)]="profile.p19"/></td>
+        </tr>        
+        <tr>
+          <td class="profile-title">Xoá</td>
+          <td><input type="checkbox" [(ngModel)]="profile.p20"/></td>
+        </tr>  
+        <tr>
+          <td class="profile-title">Sửa</td>
+          <td><input type="checkbox" [(ngModel)]="profile.p21"/></td>
+        </tr>  
+        <tr>
+          <td colspan="2"><strong>Phiên đăng ký</strong></td>
+        </tr>
+        <tr>
+          <td class="profile-title">Lấy QR</td>
+          <td><input type="checkbox" [(ngModel)]="profile.p22"/></td>
+        </tr>  
+        <tr>
+          <td class="profile-title">Tạo</td>
+          <td><input type="checkbox" [(ngModel)]="profile.p23"/></td>
+        </tr> 
+        <tr>
+          <td colspan="2"><strong>Thống kê</strong></td>
+        </tr>
+        <tr>
+          <td class="profile-title">Toàn bộ</td>
+          <td><input type="checkbox" [(ngModel)]="profile.p24"/></td>
+        </tr>  
+
+        <tr *ngIf="!isNewProfile">
+          <td colspan="2"><strong>Thông tin quyền</strong></td>
+        </tr>
+        <tr *ngIf="!isNewProfile">
+          <td class="profile-title">Người tạo</td>
+          <td>{{ profile.createdByCatechist?.name }}</td>
+        </tr>
+        <tr *ngIf="!isNewProfile">
+          <td class="profile-title">Người cập nhật</td>
+          <td>{{ profile.updatedByCatechist?.name }}</td>
+        </tr>
+        <tr *ngIf="!isNewProfile">
+          <td class="profile-title">Số lượng sử dụng</td>
+          <td>{{ profile.quantityUsed }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="closeDialog()">Close</button>
+    <button mat-button (click)="save()">Lưu</button>
+    <button *ngIf="!isNewProfile" mat-button (click)="delete()">Xoá</button>
+  </div>
+  

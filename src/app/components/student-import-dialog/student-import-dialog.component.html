@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>Import Students from Excel</h1>
+<div mat-dialog-content>
+    <input type="file" (change)="onFileChange($event)" accept=".xlsx, .xls" />
+
+    <div *ngIf="errorRecords.length > 0" style="color: red;">
+        <p>Có một số record bị lỗi: {{ errorRecords.join(', ') }}</p>
+    </div>
+</div>
+<div mat-dialog-actions>
+    <button [disabled]="errorRecords.length > 0 || !fileLoaded" (click)="import()">Import File</button>
+    <button mat-button mat-dialog-close>Cancel</button>
+</div>

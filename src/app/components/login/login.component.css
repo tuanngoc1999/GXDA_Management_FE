@@ -1,0 +1,25 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  mat-card {
+    width: 300px;
+    padding: 20px;
+  }
+  
+  .hidden-button {
+    background: none;
+    border: none;
+  }
+
+  mat-form-field {
+    width: 100%;
+  }
+
+  .login-button {
+    width: 100px;
+    height: 20px;
+  }

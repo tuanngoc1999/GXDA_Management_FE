@@ -1,0 +1,27 @@
+<h1 mat-dialog-title>Chi tiết học sinh</h1>
+<div mat-dialog-content>
+  <app-student-form #studentForm [studentData]="data.student" [isNewStudent]="isNewStudent"></app-student-form>
+  <mat-form-field appearance="outline">
+    <mat-label>Khối</mat-label>
+    <mat-select (selectionChange)="onBlockChange($event.value)" [value]="selectedBlockId">
+      <mat-option [value]=""></mat-option>
+      <mat-option *ngFor="let block of blocks" [value]="block.id">
+        {{ block.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Lớp</mat-label>
+    <mat-select (selectionChange)="onClassChange($event.value)" [value]="selectedClassId">
+      <mat-option [value]=""></mat-option>
+      <mat-option *ngFor="let class of classes" [value]="class.id">
+        {{ class.name }} - {{ class.catechists[0]?.name }}: {{ class.totalStudents }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="close()">Hủy</button>
+  <button mat-button color="primary" *ngIf="!isNewStudent" (click)="deleteStudent(studentForm.studentForm.value.id)">Xoá</button>
+  <button mat-button color="primary" (click)="save(studentForm.studentForm)">Lưu</button>
+</div>

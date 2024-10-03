@@ -1,0 +1,36 @@
+<h1 mat-dialog-title>Chi tiết lớp</h1>
+<div mat-dialog-content class="class-detail-form">
+    <form [formGroup]="classForm" class="form">
+        <mat-form-field appearance="outline">
+            <mat-label>Khối</mat-label>
+            <mat-select formControlName="blockId" (selectionChange)="onBlockChange($event.value)">
+                <mat-option [value]="1">Khai Tâm</mat-option>
+                <mat-option [value]="2">Rước Lễ</mat-option>
+                <mat-option [value]="3">Thêm Sức</mat-option>
+                <mat-option [value]="4">Sống Đạo</mat-option>
+            </mat-select>
+        </mat-form-field>
+      
+        <mat-form-field appearance="outline">
+          <mat-label>Tên lớp</mat-label>
+          <input matInput formControlName="name">
+        </mat-form-field>
+      
+        <mat-form-field class="input-full-width" appearance="outline">
+            <mat-label>GLV</mat-label>
+            <input matInput formControlName="catechistName" name="catechist" readonly>
+            <button mat-button matSuffix class="catechist-select-button" (click)="onSelectCatechist()" aria-label="search">Chọn</button>
+        </mat-form-field>
+
+        <mat-form-field *ngIf="!isNewClass" appearance="outline">
+            <mat-label>Số lượng</mat-label>
+            <input matInput formControlName="totalStudents" readonly>
+        </mat-form-field>  
+      </form>
+      
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="close()">Hủy</button>
+  <button mat-button *ngIf="!isNewClass" (click)="deleteClass(classForm.value.id)">Xoá</button>
+  <button mat-button (click)="save(classForm)">Lưu</button>
+</div>

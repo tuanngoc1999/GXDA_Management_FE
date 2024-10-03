@@ -1,0 +1,39 @@
+<div class="content"> 
+    <div>
+      <button mat-icon-button class="add-class-button" (click)="addProfile()">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+    <div *ngIf="dataSource.data.length > 0; else noClasss">
+      <table mat-table [dataSource]="dataSource" matSort>
+  
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>STT</th>
+          <td mat-cell *matCellDef="let p">{{ p.id }}</td>
+        </ng-container>
+  
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Tên quyền</th>
+          <td mat-cell *matCellDef="let p">{{ p.name }}</td>
+        </ng-container>
+  
+        <ng-container matColumnDef="createdBy">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Người tạo</th>
+          <td mat-cell *matCellDef="let p">{{ p.createdByCatechist.name}}</td>
+        </ng-container>
+  
+        <ng-container matColumnDef="quantityUsed">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Số lượng sử dụng</th>
+          <td mat-cell *matCellDef="let p">{{ p.quantityUsed}}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="openProfileDetail(row)"></tr>
+      </table>
+
+    </div>
+  
+    <ng-template #noClasss>
+      <p>Không tìm thấy lớp nào.</p>
+    </ng-template>
+  </div>

@@ -1,0 +1,67 @@
+<h1 mat-dialog-title>Điểm</h1>
+<div mat-dialog-content>
+  <mat-form-field appearance="outline">
+    <mat-label>Học kì</mat-label>
+    <mat-select (selectionChange)="onTermChange($event.value)">
+      <mat-option [value]="0"></mat-option>
+      <mat-option [value]="1">Học kì 1</mat-option>
+      <mat-option [value]="2">Học kì 2</mat-option>
+      <mat-option [value]="3">Riêng</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <table mat-table [dataSource]="dataSource" matSort>
+
+    <!-- Cột STT -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>STT</th>
+      <td mat-cell *matCellDef="let score">{{ score.student.id }}</td>
+    </ng-container>
+
+    <!-- Cột Tên thánh & Họ tên -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="name-column">Tên thánh & Họ tên</th>
+      <td mat-cell *matCellDef="let score">{{ score.student.name }}</td>
+    </ng-container>
+
+    <!-- Cột Giáo lý -->
+    <ng-container matColumnDef="catechismMark">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Giáo lý</th>
+      <td mat-cell *matCellDef="let score">
+        <mat-form-field appearance="outline" class="small-input">
+          <input matInput [(ngModel)]="score.scores[0].catechismMark">
+        </mat-form-field>
+      </td>
+    </ng-container>
+
+    <!-- Cột Kinh -->
+    <ng-container matColumnDef="prayerMark">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Kinh</th>
+      <td mat-cell *matCellDef="let score">
+        <mat-form-field appearance="outline" class="small-input">
+          <input matInput [(ngModel)]="score.scores[0].prayerMark">
+        </mat-form-field>
+      </td>
+    </ng-container>
+
+    <!-- Cột Ghi chú -->
+    <ng-container matColumnDef="note">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Ghi chú</th>
+      <td mat-cell *matCellDef="let score">
+        <mat-form-field appearance="outline" class="small-input">
+          <input matInput [(ngModel)]="score.scores[0].note">
+        </mat-form-field>
+      </td>
+    </ng-container>
+
+    <!-- Hàng tiêu đề của bảng -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <!-- Hàng dữ liệu của bảng -->
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="close()">Hủy</button>
+  <button mat-button color="primary" (click)="save()">Lưu</button>
+</div>

@@ -1,0 +1,22 @@
+<div class="student-approval">
+  <h1>Thông tin thiếu nhi</h1>
+  <app-student-form [studentData]="studentForm.value" [isNewStudent]="isNewStudent"></app-student-form>
+  <mat-form-field appearance="outline">
+      <mat-label>Khối</mat-label>
+      <mat-select (selectionChange)="onBlockChange($event.value)" [value]="selectedBlockId">
+        <mat-option *ngFor="let block of blocks" [value]="block.id">
+          {{ block.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Lớp</mat-label>
+      <mat-select (selectionChange)="onClassChange($event.value)" [value]="selectedClassId">
+        <mat-option *ngFor="let class of classes" [value]="class.id">
+          {{ class.name }} - {{ class.catechists[0]?.name }}: {{ class.totalStudents }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  <button mat-button color="primary" (click)="save()">Lưu</button>
+</div> 
+

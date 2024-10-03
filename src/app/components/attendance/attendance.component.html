@@ -1,0 +1,66 @@
+<div class="content">
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Tìm kiếm</mat-label>
+        <input matInput (input)="applyFilter($event)" placeholder="Nhập từ khóa">
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline">
+        <mat-label>Lớp</mat-label>
+        <mat-select (selectionChange)="onClassChange($event.value)" [value]="selectedClassId">
+          <mat-option *ngFor="let cls of classes" [value]="cls.id">
+            {{cls.block?.name}} {{ cls.name }} - SL: {{ cls.totalStudents }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline">
+        <mat-label>Chọn tháng</mat-label>
+        <mat-select [(value)]="selectedMonth" (selectionChange)="onMonthChange($event.value)">
+          <mat-option *ngFor="let month of months" [value]="month.index">
+            {{ month.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  
+    <div>
+      <button mat-button color="primary" (click)="save()">Lưu</button>
+      <button mat-button color="primary" (click)="onCancel()">Huỷ</button>
+    </div>
+  
+    <div *ngIf="dataSource.data.length > 0; else noStudents">
+      <table mat-table [dataSource]="dataSource" matSort>
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>STT</th>
+          <td mat-cell *matCellDef="let attendance">{{ attendance.student.id }}</td>
+        </ng-container>
+  
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header class="name-column">Tên thánh & Họ tên</th>
+          <td mat-cell *matCellDef="let attendance">{{ attendance.student.name }}</td>
+        </ng-container>
+  
+        <ng-container *ngFor="let col of sundayColumns" [matColumnDef]="col">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header class="sunday-column">{{ col }}</th>
+          <td mat-cell *matCellDef="let element" class="sunday-column">
+            <mat-select
+              [value]="getAttendanceStatus(element.attendances, col)"
+              (valueChange)="updateAttendance(element.student.id, col, $event)">
+              <mat-option [value]="-1">Vắng</mat-option>
+              <mat-option [value]="0">Phép</mat-option>
+              <mat-option [value]="1">Có mặt</mat-option>
+            </mat-select>
+          </td>
+        </ng-container>
+  
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+  
+    <ng-template #noStudents>
+      <p>Không tìm thấy học sinh nào.</p>
+    </ng-template>
+  </div>
+  

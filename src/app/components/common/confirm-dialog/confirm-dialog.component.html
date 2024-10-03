@@ -1,0 +1,9 @@
+<div style="display:block" class="select-dialog">
+    <h1 mat-dialog-title>{{title}}</h1>
+    <div mat-dialog-content>
+        <mat-dialog-actions align="end">
+            <button mat-button mat-dialog-close>Huỷ</button>
+            <button mat-button (click)="closeDialog()" [mat-dialog-close]="true" cdkFocusInitial>Xác nhận</button>
+        </mat-dialog-actions>
+    </div>
+</div>

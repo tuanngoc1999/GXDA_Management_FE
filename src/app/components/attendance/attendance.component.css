@@ -1,0 +1,11 @@
+.sunday-column {
+    min-width: 150px;
+}
+
+.name-column {
+  min-width: 250px;
+}
+
+.content {
+  padding: 16px;
+}

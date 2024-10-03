@@ -1,0 +1,47 @@
+<div class="content"> 
+    <!-- <mat-form-field appearance="outline">
+        <mat-label>Khối</mat-label>
+        <mat-select (selectionChange)="onBlockChange($event.value)" [value]="selectedBlockId">
+          <mat-option *ngFor="let block of blocks" [value]="block.id">
+            {{ block.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field> -->
+    <div>
+      <button mat-icon-button class="add-class-button" (click)="addClass()">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+    <div *ngIf="dataSource.data.length > 0; else noClasss">
+      <table mat-table [dataSource]="dataSource" matSort>
+  
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>STT</th>
+          <td mat-cell *matCellDef="let class">{{ class.id }}</td>
+        </ng-container>
+  
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Lớp</th>
+          <td mat-cell *matCellDef="let class">{{ class.block.name }} {{ class.name }}</td>
+        </ng-container>
+  
+        <ng-container matColumnDef="catechist">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>GLV</th>
+          <td mat-cell *matCellDef="let class">{{ class.catechists?.length > 0 ? class.catechists[0].name : '' }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="total">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Số lượng</th>
+            <td mat-cell *matCellDef="let class">{{ class.totalStudents }}</td>
+          </ng-container>
+  
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="openClassDetail(row)"></tr>
+      </table>
+
+    </div>
+  
+    <ng-template #noClasss>
+      <p>Không tìm thấy lớp nào.</p>
+    </ng-template>
+  </div>

@@ -1,0 +1,86 @@
+<form [formGroup]="studentForm">
+  <mat-form-field appearance="outline">
+    <mat-label>Tên Thánh</mat-label>
+    <input matInput formControlName="holyName">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Họ</mat-label>
+    <input matInput formControlName="firstName">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Tên</mat-label>
+    <input matInput formControlName="lastName">
+  </mat-form-field>
+
+
+  <mat-form-field appearance="outline">
+    <mat-label>Ngày sinh</mat-label>
+    <input matInput [matDatepicker]="birthDatePicker" formControlName="birthDate">
+    <mat-datepicker-toggle matIconSuffix [for]="birthDatePicker"></mat-datepicker-toggle>
+    <mat-datepicker #birthDatePicker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Địa chỉ</mat-label>
+    <input matInput formControlName="address">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Liên lạc</mat-label>
+    <input matInput formControlName="contact">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Tên Thánh & Họ tên Bố</mat-label>
+    <input matInput formControlName="dad">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Tên Thánh & Họ tên Mẹ</mat-label>
+    <input matInput formControlName="mom">
+  </mat-form-field>
+
+  <div style="display: flex; gap: 5px;">
+    <span>Rửa tội</span>
+    <mat-form-field appearance="outline" style="width: 40%;">
+      <mat-label>Ngày</mat-label>
+      <input matInput formControlName="sacramentBaptismDate">
+    </mat-form-field>
+    <mat-form-field appearance="outline" style="width: 40%;">
+      <mat-label>Giáo xứ</mat-label>
+      <input matInput formControlName="sacramentBaptismParish">
+    </mat-form-field>
+  </div>
+
+  <div style="display: flex; gap: 5px;">
+    <span>Xưng tội & Rước lễ lần đầu</span>
+    <mat-form-field appearance="outline" style="width: 40%;">
+      <mat-label>Ngày</mat-label>
+      <input matInput formControlName="sacramentFirstConfessionDate">
+    </mat-form-field>
+    <mat-form-field appearance="outline" style="width: 40%;">
+      <mat-label>Giáo xứ</mat-label>
+      <input matInput formControlName="sacramentFirstConfessionParish">
+    </mat-form-field>
+  </div>
+
+  <div style="display: flex; gap: 5px;">
+    <span>Thêm sức</span>
+    <mat-form-field appearance="outline" style="width: 40%;">
+      <mat-label>Ngày</mat-label>
+      <input matInput formControlName="sacramentConfirmationDate">
+    </mat-form-field>
+    <mat-form-field appearance="outline" style="width: 40%;">
+      <mat-label>Giáo xứ</mat-label>
+      <input matInput formControlName="sacramentConfirmationParish">
+    </mat-form-field>
+  </div>
+  
+  <mat-form-field appearance="outline">
+    <mat-label>Ghi chú</mat-label>
+    <input matInput formControlName="note">
+  </mat-form-field>
+
+</form>

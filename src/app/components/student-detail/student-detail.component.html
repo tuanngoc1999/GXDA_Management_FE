@@ -1,0 +1,5 @@
+<div class="student-detail">
+    <h1>Thông tin thiếu nhi</h1>
+    <app-student-form #studentForm [isNewStudent]="isNewStudent"></app-student-form>
+    <button mat-button color="primary" (click)="save(studentForm.studentForm)">Lưu</button>
+</div>
